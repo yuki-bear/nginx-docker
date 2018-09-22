@@ -9,6 +9,9 @@ RUN curl -o /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
     && apt-get -y install php-pear php7.2-curl php7.2-dev php7.2-gd php7.2-mbstring php7.2-zip php7.2-mysql php7.2-xml \
     && apt-get clean && rm -r /var/lib/apt/lists/*
 
+ADD conf/nginx.conf /etc/nginx/
+ADD conf/www.conf /etc/php/7.2/fpm/pool.d/
+
 EXPOSE 80
 EXPOSE 443
 
